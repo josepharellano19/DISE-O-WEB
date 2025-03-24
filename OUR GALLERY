@@ -1,0 +1,7 @@
+echo "# DISE-O-WEB" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/josepharellano19/DISE-O-WEB.git
+git push -u origin main
