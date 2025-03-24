@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevas Creaciones</title>
+    <link rel="stylesheet" href="Styles.css">
+</head>
+<body>
+    <header>
+        <h1>Nuevas Creaciones</h1>
+        <nav>
+            <a href="arte.html">Volver a Arte</a>
+        </nav>
+    </header>
+    
+    <main>
+        <section>
+            <h2>Explora las últimas obras de arte</h2>
+            <p>Aquí encontrarás las creaciones más recientes de nuestros artistas.</p>
+            
+            <h3>Sube tu obra de arte</h3>
+            <form action="upload.php" method="post" enctype="multipart/form-data">
+                <label for="file">Selecciona una imagen:</label>
+                <input type="file" name="file" id="file" accept="image/*" required>
+                <br>
+                <button type="submit">Subir Imagen</button>
+            </form>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Arte y Creatividad</p>
+    </footer>
+</body>
+</html>

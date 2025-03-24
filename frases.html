@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frases</title>
+    <link rel="stylesheet" href="estiloinicio.css">
+    <style>
+        /* Fondo con degradado y color base de Wallhaven */
+        body {
+            background-color: #1B3B4D;
+            background-image: radial-gradient(circle, #3A7669 20%, #1B3B4D 80%);
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            padding-top: 50px;
+            margin: 0;
+        }
+
+        /* Estilos del menú en cuadros separados */
+        nav {
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        li {
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            display: inline-block;
+            padding: 15px 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        ul li:nth-child(1) a { color: #aaff00; }
+        ul li:nth-child(2) a { color: #cc66ff; }
+        ul li:nth-child(3) a { color: #ff6600; }
+        ul li:nth-child(4) a { color: #ff4444; }
+        ul li:nth-child(5) a { color: #ffcc00; }
+
+        a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        /* Estilos para el menú de hamburguesa */
+        .hamburger-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        .hamburger-button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #hamburger-menu {
+            display: none;
+            background-color: transparent;  /* Quitar el fondo gris */
+            padding: 10px;
+            text-align: left;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 200px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        #hamburger-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #hamburger-menu ul li {
+            display: block;
+            padding: 10px;
+        }
+
+        #hamburger-menu ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+
+        #hamburger-menu ul li:nth-child(1) a { color: #aaff00; }
+        #hamburger-menu ul li:nth-child(2) a { color: #cc66ff; }
+        #hamburger-menu ul li:nth-child(3) a { color: #ff6600; }
+        #hamburger-menu ul li:nth-child(4) a { color: #ff4444; }
+        #hamburger-menu ul li:nth-child(5) a { color: #ffcc00; }
+
+        #hamburger-menu ul li a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Media Queries para que el menú se mantenga vertical */
+        @media screen and (max-width: 480px) {
+            #hamburger-menu ul {
+                display: block;
+                margin-top: 10px;
+            }
+            #hamburger-menu ul li {
+                display: block;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1><center>Frases</center></h1>
+    
+    <nav>
+        <ul>
+            <li><a href="inicio.html">Inicio</a></li>    
+            <li><a href="fondos de pantalla.html">Fondos de pantalla</a></li>
+            <li><a href="arte.html">Arte</a></li>
+            <li><a href="memes.html">Memes</a></li>
+        </ul>
+    </nav>
+
+    <div class="hamburger-container">
+        <button class="hamburger-button" onclick="toggleMenu()">
+            &#9776;
+        </button>
+        <nav id="hamburger-menu">
+            <ul>
+                <li><a href="frases de amor.html">Frases de amor</a></li>
+                <li><a href="frases profundas.html">Frases profundas</a></li>
+                <li><a href="juegos de palabras.html">Juegos de palabras</a></li>
+                <li><a href="frases de peliculas/series.html">Frases de películas/series</a></li>
+                <li><a href="frases de anime/videojuegos.html">Frases de anime/videojuegos</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("hamburger-menu");
+            if (menu.style.display === "none" || menu.style.display === "") {
+                menu.style.display = "block";
+            } else {
+                menu.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

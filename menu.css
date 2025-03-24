@@ -1,0 +1,81 @@
+/* Estilos del menú en cuadros separados */
+nav {
+    margin-top: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Espacio entre cuadros */
+    flex-wrap: wrap; /* Asegura que los elementos se ajusten si el espacio es limitado */
+}
+
+li {
+    margin: 0;
+}
+
+/* Estilos de los cuadros */
+a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 15px 30px;
+    background: rgba(0, 0, 0, 0.3); /* Fondo semitransparente */
+    border-radius: 10px; /* Bordes redondeados */
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.3s, transform 0.2s;
+}
+
+/* Colores de cada botón */
+ul li:nth-child(1) a { color: #aaff00; } /* Verde */
+ul li:nth-child(2) a { color: #cc66ff; } /* Morado */
+ul li:nth-child(3) a { color: #ff6600; } /* Naranja */
+ul li:nth-child(4) a { color: #ff4444; } /* Rojo */
+ul li:nth-child(5) a { color: #ffcc00; } /* Amarillo */
+
+/* Efecto hover */
+a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05); /* Pequeño aumento al pasar el mouse */
+}
+
+/* Media Queries para hacer que el menú se adapte */
+
+/* ✅ Para pantallas más pequeñas, como móviles (Ejemplo: 390x844) */
+@media screen and (max-width: 480px) {
+    ul {
+        flex-direction: row; /* Mantener los elementos en fila */
+        justify-content: center; /* Alinea los elementos al centro */
+        gap: 10px; /* Reducir el espacio entre botones */
+    }
+
+    a {
+        padding: 10px 20px; /* Reducir el tamaño de los botones */
+        font-size: 14px;
+        width: auto; /* Ajustar el ancho */
+    }
+}
+
+/* ✅ Para tablets (Ejemplo: 768x1024) */
+@media screen and (max-width: 800px) {
+    ul {
+        flex-direction: row; /* Mantener los elementos en fila */
+        justify-content: center; /* Alinea los elementos al centro */
+    }
+
+    a {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+}
+
+/* ✅ Para pantallas grandes */
+@media screen and (min-width: 801px) {
+    ul {
+        flex-direction: row; /* Mantener los elementos en fila */
+        justify-content: center; /* Alinea los elementos al centro */
+    }
+}

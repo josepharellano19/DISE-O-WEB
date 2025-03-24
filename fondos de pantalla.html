@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fondos de pantalla</title>
+    <link rel="stylesheet" href="ejemplos.css">
+    <link rel="stylesheet" href="menu.css">
+    <style> 
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .wallpaper {
+            background: #1e1e1e;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .wallpaper img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .download-btn {
+            margin-top: 10px;
+            padding: 8px;
+            background: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .generate-btn {
+            position: relative; /* Cambié de fixed a relative */
+            top: 20px; /* Dejé un espacio de 20px desde la parte superior */
+            margin-top: 50px; /* Añadí un margen superior para que no se superponga con el menú */
+            padding: 10px 15px;
+            background: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <ul>  
+            <li><a href="inicio.html">inicio</a></li>  
+            <li><a href="arte.html">Arte</a></li>
+            <li><a href="memes.html">Memes</a></li>
+            <li><a href="frases.html">Frases</a></li>
+        </ul>
+    </nav>
+
+    <h1>Wallaperes Chidos</h1>
+    <button class="generate-btn" onclick="generateWallpapers()">Generar Nuevas</button>
+    <div class="gallery" id="wallpaperGallery"></div>
+
+    <script>
+        const wallpapers = [
+           "Imagen de WhatsApp 2025-02-05 a las 12.18.40_fe266215.jpg",  
+          "IMG-20250205-WA0030.jpg", "IMG-20250205-WA0031.jpg", "IMG-20250205-WA0032.jpg",
+          "IMG-20250205-WA0033.jpg", "IMG-20250205-WA0034.jpg", "IMG-20250205-WA0035.jpg", 
+          "IMG-20250205-WA0036.jpg", "IMG-20250205-WA0037.jpg", "IMG-20250205-WA0038.jpg", 
+          "IMG-20250205-WA0039.jpg", "IMG-20250205-WA0040.jpg", "IMG-20250205-WA0041.jpg",
+          "IMG-20250205-WA0042.jpg", "IMG-20250205-WA0043.jpg", "IMG-20250205-WA0044.jpg",
+          "IMG-20250205-WA0045.jpg", "IMG-20250205-WA0046.jpg", "IMG-20250205-WA0047.jpg",
+          "IMG-20250205-WA0048.jpg", "IMG-20250205-WA0049.jpg", "IMG-20250205-WA0050.jpg",
+          "IMG-20250205-WA0051.jpg", "IMG-20250205-WA0052.jpg", "IMG-20250205-WA0053.jpg",
+          "IMG-20250205-WA0054.jpg", "IMG-20250205-WA0055.jpg", "IMG-20250205-WA0056.jpg",
+          "IMG-20250205-WA0057.jpg", "IMG-20250205-WA0058.jpg", "IMG-20250205-WA0059.jpg",
+          "IMG-20250205-WA0060.jpg", "IMG-20250205-WA0061.jpg", "IMG-20250205-WA0062.jpg",
+          "IMG-20250205-WA0063.jpg", "IMG-20250205-WA0064.jpg", "IMG-20250205-WA0065.jpg",
+          "IMG-20250205-WA0066.jpg", "IMG-20250205-WA0067.jpg", "IMG-20250205-WA0068.jpg",
+          "IMG-20250205-WA0069.jpg", "IMG-20250205-WA0070.jpg", "IMG-20250205-WA0071.jpg",
+          "IMG-20250205-WA0072.jpg", "IMG-20250205-WA0073.jpg", "IMG-20250205-WA0074.jpg",
+          "IMG-20250205-WA0075.jpg", "IMG-20250205-WA0076.jpg", "IMG-20250205-WA0077.jpg",
+          "IMG-20250205-WA0078.jpg", "IMG-20250205-WA0079.jpg", "IMG-20250205-WA0080.jpg",
+          "IMG-20250205-WA0081.jpg", "IMG-20250205-WA0082.jpg", "IMG-20250205-WA0083.jpg",
+          "IMG-20250205-WA0084.jpg", "IMG-20250205-WA0085.jpg", "IMG-20250205-WA0086.jpg",
+          "IMG-20250205-WA0087.jpg", "IMG-20250205-WA0088.jpg", "IMG-20250205-WA0089.jpg",
+          "IMG-20250205-WA0090.jpg", "IMG-20250205-WA0091.jpg", "IMG-20250205-WA0092.jpg",
+          "IMG-20250205-WA0093.jpg", "IMG-20250205-WA0094.jpg", "IMG-20250205-WA0095.jpg",
+          "IMG-20250205-WA0096.jpg", "IMG-20250205-WA0097.jpg", "IMG-20250205-WA0098.jpg",
+          "IMG-20250205-WA0099.jpg", "IMG-20250205-WA0100.jpg", "IMG-20250205-WA0101.jpg",
+          "IMG-20250205-WA0102.jpg", "IMG-20250205-WA0103.jpg", "IMG-20250205-WA0104.jpg",
+          "IMG-20250205-WA0105.jpg", "IMG-20250205-WA0106.jpg", "IMG-20250205-WA0107.jpg",
+          "IMG-20250205-WA0108.jpg", "IMG-20250205-WA0109.jpg", "IMG-20250205-WA0110.jpg",
+          "IMG-20250205-WA0111.jpg", "IMG-20250205-WA0112.jpg", "ÑÑÑÑ.jpg"
+        ];
+
+        function getRandomWallpapers() {
+            let shuffled = wallpapers.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, 8);
+        }
+
+        function generateWallpapers() {
+            const gallery = document.getElementById("wallpaperGallery");
+            gallery.innerHTML = "";
+            
+            const selectedWallpapers = getRandomWallpapers();
+            selectedWallpapers.forEach(imgSrc => {
+                const wallpaperDiv = document.createElement("div");
+                wallpaperDiv.classList.add("wallpaper");
+                
+                const img = document.createElement("img");
+                img.src = `./wallpapers/${imgSrc}`;
+                img.alt = "Wallpaper";
+                
+                const downloadBtn = document.createElement("button");
+                downloadBtn.classList.add("download-btn");
+                downloadBtn.innerText = "Descargar";
+                downloadBtn.onclick = () => window.open(`./wallpapers/${imgSrc}`, "_blank");
+                
+                wallpaperDiv.appendChild(img);
+                wallpaperDiv.appendChild(downloadBtn);
+                gallery.appendChild(wallpaperDiv);
+            });
+        }
+        
+        window.onload = generateWallpapers;
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+/* Fondo con degradado y color base de Wallhaven */
+body {
+    background-color: #1B3B4D;
+    background-image: radial-gradient(circle, #3A7669 20%, #1B3B4D 80%);
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    padding-top: 50px;
+    margin: 0;
+}
+
+/* Estilos del menú en cuadros separados */
+nav {
+    margin-top: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+li {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 15px 30px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.3s, transform 0.2s;
+}
+
+ul li:nth-child(1) a { color: #aaff00; }
+ul li:nth-child(2) a { color: #cc66ff; }
+ul li:nth-child(3) a { color: #ff6600; }
+ul li:nth-child(4) a { color: #ff4444; }
+ul li:nth-child(5) a { color: #ffcc00; }
+
+a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+/* Media Queries para que el menú se mantenga horizontal */
+
+/* Para pantallas más pequeñas como móviles (Ejemplo: 390x844) */
+@media screen and (max-width: 480px) {
+    ul {
+        flex-direction: row; /* Mantener los elementos en fila */
+        justify-content: center; /* Alinea los elementos al centro */
+        gap: 10px; /* Reducir el espacio entre botones */
+    }
+
+    a {
+        padding: 10px 20px; /* Reducir el tamaño de los botones */
+        font-size: 14px;
+        width: auto; /* Ajustar el ancho */
+    }
+}
+
+/* Para tablets (Ejemplo: 768x1024) */
+@media screen and (max-width: 800px) {
+    ul {
+        flex-direction: row; /* Mantener los elementos en fila */
+        justify-content: center; /* Alinea los elementos al centro */
+    }
+
+    a {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+}
+
+/* Para pantallas grandes */
+@media screen and (min-width: 801px) {
+    ul {
+        flex-direction: row; /* Mantener los elementos en fila */
+        justify-content: center; /* Alinea los elementos al centro */
+    }
+}
+
