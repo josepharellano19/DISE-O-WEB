@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="ejemplo.css">
+   
+    <title>Mosaico de Arte</title>
+    <style> 
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .wallpaper {
+            background: #1e1e1e;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .wallpaper img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .download-btn {
+            margin-top: 10px;
+            padding: 8px;
+            background: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .generate-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .load-btn {
+            padding: 10px 15px;
+            background: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+    
+
+/* Teléfono vertical (menos de 480px) */
+@media (max-width: 479px) {
+    body {
+        background-color: #0a0000;
+    }
+    main {
+        padding: 10px;
+    }
+}
+    </style>
+</head>
+<body>
+    <h1>Mosaico de Arte</h1>
+    <button class="load-btn" onclick="loadImages()">Cargar Nuevas Imágenes</button>
+    <div class="gallery" id="gallery"></div>
+
+    <script>
+        const ACCESS_KEY = '1wif6ax_OQCIkukPHfKk0gJi-Ml_WnyFtQNr1g2ogeg';
+        const URL = `https://api.unsplash.com/photos/random?query=art&count=9&client_id=${ACCESS_KEY}`;
+
+        async function loadImages() {
+            const gallery = document.getElementById('gallery');
+            gallery.innerHTML = '<p>Cargando imágenes...</p>';
+            
+            try {
+                const response = await fetch(URL);
+                const images = await response.json();
+                gallery.innerHTML = '';
+
+                images.forEach(img => {
+                    const wallpaperDiv = document.createElement('div');
+                    wallpaperDiv.className = 'wallpaper';
+
+                    const imageElement = document.createElement('img');
+                    imageElement.src = img.urls.small;
+                    imageElement.alt = img.alt_description;
+
+                    const downloadBtn = document.createElement('button');
+                    downloadBtn.className = 'download-btn';
+                    downloadBtn.innerText = 'Descargar';
+                    downloadBtn.onclick = () => window.open(img.links.download, '_blank');
+
+                    wallpaperDiv.appendChild(imageElement);
+                    wallpaperDiv.appendChild(downloadBtn);
+                    gallery.appendChild(wallpaperDiv);
+                });
+            } catch (error) {
+                gallery.innerHTML = '<p>Error al cargar imágenes.</p>';
+            }
+        }
+
+        window.onload = loadImages;
+    </script>
+</body>
+</html>

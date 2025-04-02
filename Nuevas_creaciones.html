@@ -4,13 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuevas Creaciones</title>
-    <link rel="stylesheet" href="Styles.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="ejemplo.css">
+   
 </head>
 <body>
     <header>
         <h1>Nuevas Creaciones</h1>
         <nav>
-            <a href="arte.html">Volver a Arte</a>
+            <ul>  
+            <li><a href="inicio.html">inicio</a></li>  
+            <li><a href="arte.html">Arte</a></li>
+            <li><a href="memes.html">Memes</a></li>
+            <li><a href="frases.html">Frases</a></li>
+            </ul>
         </nav>
     </header>
     
@@ -18,19 +25,34 @@
         <section>
             <h2>Explora las últimas obras de arte</h2>
             <p>Aquí encontrarás las creaciones más recientes de nuestros artistas.</p>
-            
-            <h3>Sube tu obra de arte</h3>
-            <form action="upload.php" method="post" enctype="multipart/form-data">
-                <label for="file">Selecciona una imagen:</label>
-                <input type="file" name="file" id="file" accept="image/*" required>
-                <br>
-                <button type="submit">Subir Imagen</button>
-            </form>
         </section>
+        <div id="mosaico-container"></div>
     </main>
+
+    <script>
+        async function cargarMosaico() {
+            try {
+                const response = await fetch('api.html'); // Cargar api.html
+                if (!response.ok) throw new Error('Error al cargar api.html');
+                const html = await response.text();
+                document.getElementById('mosaico-container').innerHTML = html;
+                ejecutarScripts();
+            } catch (error) {
+                console.error(error);
+                document.getElementById('mosaico-container').innerHTML = '<p>Error al cargar el mosaico.</p>';
+            }
+        }
     
-    <footer>
-        <p>&copy; 2024 Arte y Creatividad</p>
-    </footer>
+        function ejecutarScripts() {
+            const scripts = document.getElementById('mosaico-container').querySelectorAll('script');
+            scripts.forEach(script => {
+                const newScript = document.createElement('script');
+                newScript.textContent = script.textContent;
+                document.body.appendChild(newScript);
+            });
+        }
+    
+        cargarMosaico();
+    </script>
 </body>
 </html>

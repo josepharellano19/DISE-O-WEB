@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Validación</title>
+    <link rel="stylesheet" href="Styles.css">
+    <link rel="stylesheet" href="ejemplo.css">
+    <nav>
+        <ul class="nav">
+            <li><a href="arte.html">menu arte</a></li>
+           
+        </ul>
+    </nav>
+    <script>
+        function validateForm() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            if (!name) {
+                alert("Por favor, ingresa tu nombre.");
+                return false;
+            }
+
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert("Por favor, ingresa un correo electrónico válido.");
+                return false;
+            }
+
+            if (!message) {
+                alert("Por favor, escribe un mensaje.");
+                return false;
+            }
+
+            alert("Formulario enviado correctamente.");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>Contacto</h2>
+    <form onsubmit="return validateForm()">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="email">Correo electrónico:</label>
+        <input type="text" id="email" name="email"><br><br>
+
+        <label for="message">Mensaje:</label>
+        <textarea id="message" name="message"></textarea><br><br>
+
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>

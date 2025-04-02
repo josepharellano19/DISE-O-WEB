@@ -1,35 +1,140 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+    
+        font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .wallpaper {
+            background: #1e1e1e;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .wallpaper img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .download-btn {
+            margin-top: 10px;
+            padding: 8px;
+            background: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .generate-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
 }
 header {
-    background-color: #721c64;
+    background-color: #1B3B4D; /* Color base con tono azul-verde */
+    background-image: radial-gradient(circle, #3A7669 20%, #1B3B4D 80%); /* Degradado suave del centro hacia las esquinas */
     color: white;
     padding: 20px;
 }
+* Estilos del menú en cuadros separados */
 nav {
-    background-color: #555;
-    padding: 10px;
+    margin-top: 20px;
 }
-nav ul {
+
+ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Espacio entre cuadros */
 }
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+
+li {
+    margin: 0;
     color: white;
-    cursor: pointer;
+}
+
+/* Estilos de los cuadros */
+a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 15px 30px;
+    background: rgba(0, 0, 0, 0.3); /* Fondo semitransparente */
+    border-radius: 10px; /* Bordes redondeados */
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.3s, transform 0.2s;
+}
+
+/* Colores de cada botón */
+ul li:nth-child(1) a { color: #aaff00; } /* Verde */
+ul li:nth-child(2) a { color: #cc66ff; } /* Morado */
+ul li:nth-child(3) a { color: #ff6600; } /* Naranja */
+ul li:nth-child(4) a { color: #ff4444; } /* Rojo */
+ul li:nth-child(5) a { color: #ffcc00; } /* Amarillo */
+
+/* Efecto hover */
+a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05); /* Pequeño aumento al pasar el mouse */
 }
 main {
     
     padding: 20px;
    
 }
+article {
+    background-color: #1B3B4D;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0px 4px 6px rgba(247, 242, 242, 0.87);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+article:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 6px 12px rgba(238, 231, 231, 0.918);
+}
+
+h2 {
+    color: #e2d2d2;
+    margin-bottom: 10px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
 footer {
-    background-color: #691156;
+    background-color: #1B3B4D; /* Color base con tono azul-verde */
+    background-image: radial-gradient(circle, #3A7669 20%, #1B3B4D 80%); /* Degradado suave del centro hacia las esquinas */
     color: white;
     padding: 10px;
     margin-top: 20px;
